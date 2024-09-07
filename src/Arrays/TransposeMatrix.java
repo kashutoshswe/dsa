@@ -4,16 +4,15 @@ import java.util.ArrayList;
 
 public class TransposeMatrix {
     public int[][] transposeMatrix(int[][] matrix) {
-        int[][] transposeMatrix = new int[matrix.length][matrix[].length];
-        for(int i = 0; i < matrix.length; i++)
+        int columnLength = matrix.length, rowLength = matrix[0].length;
+        int[][] transposeMatrix = new int[rowLength][columnLength];
+        for (int i = 0; i < columnLength; i++)
         {
-            ArrayList<Integer> columnList = new ArrayList<Integer>();
-            int columnIndex = 0;
-            for(int j = 0; j < matrix[i].length; j++)
+            for(int j = 0; j < rowLength; j++)
             {
-                columnList.add(matrix[columnIndex++][i]);
+               transposeMatrix[j][i] = matrix[i][j];
             }
         }
-        return matrix;
+        return transposeMatrix;
     }
 }
