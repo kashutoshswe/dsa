@@ -1,20 +1,19 @@
+package Trees;
+
 public class NodeDepth {
     public static int nodeDepths(BinaryTree root) {
-        int sum = 0;
-        nodeDepthsHelper(root, sum);
-        return sum;
+        int depth = 0;
+        depth = nodeDepthsHelper(root, depth);
+        return depth;
     }
 
-    public static int nodeDepthsHelper(BinaryTree root, int sum) {
+    public static int nodeDepthsHelper(BinaryTree root, int depth) {
         if(root == null)
-            return sum;
-        sum+=1;
-        nodeDepthsHelper(root.left, sum);
-        nodeDepthsHelper(root.right, sum);
-        return sum;
+            return 0;
+        return depth + nodeDepthsHelper(root.left, depth+1) + nodeDepthsHelper(root.right, depth+1);
     }
 
-    static class BinaryTree {
+    private static class BinaryTree {
         int value;
         BinaryTree left;
         BinaryTree right;
